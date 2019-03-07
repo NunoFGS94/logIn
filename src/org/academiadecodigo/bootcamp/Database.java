@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.bootcamp.scanners.string.StringInputScanner;
 
 import java.util.HashMap;
 
@@ -9,7 +8,7 @@ import java.util.HashMap;
  */
 public class Database {
 
-    HashMap<String,String> users = new HashMap<>();
+    private HashMap<String,String> users = new HashMap<>();
 
     public Database(){
         users.put("Nuno","123456");
@@ -25,6 +24,7 @@ public class Database {
         return users.get(user).equals(pass);
     }
 
-
-
+    public void newUser(String user, String pass){
+        users.put(user,pass);
+    }
 }

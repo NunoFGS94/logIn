@@ -6,7 +6,7 @@ package org.academiadecodigo.bootcamp;
 public class TwoStepVerification {
 
     public TwoStepVerification(Database database, String username, String password){
-        if(!database.isValidUser(username)||database.isCorrectLogin(username,password)){
+        if(!database.isValidUser(username) || !database.isCorrectLogin(username,password)){
             System.out.println("Invalid User and/or Password");
         }else{
             System.out.println("Correct Login");

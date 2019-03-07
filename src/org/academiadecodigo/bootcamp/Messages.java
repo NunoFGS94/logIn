@@ -8,8 +8,8 @@ import org.academiadecodigo.bootcamp.scanners.string.StringInputScanner;
 public class Messages {
 
     public void loginInMessage(){
-        StringInputScanner initialMessage = new StringInputScanner();
-        initialMessage.setMessage("Insert your login credentials below");
+        System.out.println("Insert your log in credentials below");
+
     }
 
     public String username(Prompt prompt){
@@ -25,5 +25,9 @@ public class Messages {
         passwordMsg.setMessage("Password: ");
 
         return prompt.getUserInput(passwordMsg);
+    }
+
+    public void signInMessage(){
+        System.out.println("Insert your sign in credentials below");
     }
 }

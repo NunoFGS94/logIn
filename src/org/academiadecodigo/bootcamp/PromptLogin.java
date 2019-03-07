@@ -9,14 +9,27 @@ public class PromptLogin {
     public void start(){
 
         Prompt prompt = new Prompt(System.in,System.out);
-        Database database = new Database();
         Messages messages = new Messages();
+        Database database = new Database();
+        Menu menu = new Menu();
 
-        messages.loginInMessage();
-        String username = messages.username(prompt);
-        String password = messages.password(prompt);
+        while (true) {
 
-        TwoStepVerification verification = new TwoStepVerification(database,username,password);
+            int option = menu.start(prompt);
+
+            if (option == 1) {
+                messages.loginInMessage();
+                new TwoStepVerification(database, messages.username(prompt), messages.password(prompt));
+            }
+            if (option == 2) {
+                messages.signInMessage();
+                new NewUser(database, messages.username(prompt), messages.password(prompt));
+
+            }
+            if (option == 3) {
+                System.exit(0);
+            }
+        }
 
     }
 }

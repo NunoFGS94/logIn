@@ -7,8 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PromptLogin promptLogin = new PromptLogin();
-        promptLogin.start();
+        new PromptLogin().start();
 
     }
 }
