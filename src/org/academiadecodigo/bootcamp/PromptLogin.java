@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp;
 
-import org.academiadecodigo.bootcamp.scanners.string.StringInputScanner;
 
 /**
  * Created by codecadet on 07/03/2019.
@@ -11,23 +10,13 @@ public class PromptLogin {
 
         Prompt prompt = new Prompt(System.in,System.out);
         Database database = new Database();
+        Messages messages = new Messages();
 
-        StringInputScanner initialMessage = new StringInputScanner();
-        initialMessage.setMessage("Insert your login credentials below");
+        messages.loginInMessage();
+        String username = messages.username(prompt);
+        String password = messages.password(prompt);
 
-        StringInputScanner usernameMsg = new StringInputScanner();
-        usernameMsg.setMessage("Username: ");
+        TwoStepVerification verification = new TwoStepVerification(database,username,password);
 
-        StringInputScanner passwordMsg = new StringInputScanner();
-        passwordMsg.setMessage("Password: ");
-
-        String username = prompt.getUserInput(usernameMsg);
-        String password = prompt.getUserInput(passwordMsg);
-
-        if(!database.isValidUser(username)||database.isCorrectLogin(username,password)){
-            System.out.println("Invalid User");
-        }else{
-            System.out.println("Correct Login");
-        }
     }
 }
